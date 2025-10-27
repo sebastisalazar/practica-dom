@@ -144,7 +144,7 @@ const pintarCards = ()=>{
         tagArticle.append(tagP);
 
         /* añadir el artícle fragmento */
-        let fragment = new DocumentFragment();
+        let fragment = document.createDocumentFragment();
         fragment.append(tagArticle);
 
         //console.log(tagArticle);
