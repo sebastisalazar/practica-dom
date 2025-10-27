@@ -46,11 +46,47 @@ const arrayBanners = [
         id: 8,
         src: 'assets/banner/8.jpg',
         alt: 'Banner uno'
-    },
+    }
 ]
-const arrayViajes = {
-
-}
+const arrayViajes = [
+    {
+        id: 1,
+        src: 'assets/viajes/viajes-1.jpg',
+        alt: 'Carta 1',
+        texto: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam soluta alias quis optio ipsa, porro quae mollitia non? Similique, eaque"
+    },
+    {
+        id: 2,
+        src: 'assets/viajes/viajes-2.jpg',
+        alt: 'Carta 2',
+        texto: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam soluta alias quis optio ipsa, porro quae mollitia non? Similique, eaque Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam soluta alias quis optio ipsa, porro quae mollitia non? Similique, eaque"
+    },
+    {
+        id: 3,
+        src: 'assets/viajes/viajes-3.jpg',
+        alt: 'Carta 3',
+        texto: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam soluta alias quis optio ipsa, porro quae mollitia non? Similique, eaque Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    {
+        id: 4,
+        src: 'assets/viajes/viajes-4.jpg',
+        alt: 'Carta 4',
+        texto: "Lorem ipsum dolor sit amet consectetur adipisicing elit. "
+    },
+    {
+        id: 5,
+        src: 'assets/viajes/viajes-5.jpg',
+        alt: 'Carta 5',
+        texto: "Lorem ipsum dolor sit amet. "
+    }
+    ,
+    {
+        id: 6,
+        src: 'assets/viajes/viajes-6.jpg',
+        alt: 'Carta 6',
+        texto: "Lorem ipsum "
+    }
+]
 const arrayDestinos = {}
 
 
@@ -58,14 +94,14 @@ const arrayDestinos = {}
 
 /* FUNCIONES */
 const aleatorio = () => {
-    const indice = '********'
+    const indice = Math.round(Math.random()*(7-0)+0);
     return indice
 }
 
 const pintarBanner = () => {
 
     const indice = aleatorio()
-    const elemento = arrayBanners[0]
+    const elemento = arrayBanners[indice]
 
     // console.log(elemento.alt)
     // console.log(elemento.src)
@@ -76,25 +112,57 @@ const pintarBanner = () => {
 
 }
 
-const pintarCards = {
-    /* recorrer los elementos del array/*
-    /* por cada elemento crear:/*
-    /* un article   */
-    /* un div   */
-    /* una imgen asignando sus atributos   */
-    /* un h3 asignar su valor   */
-    /* un p asignar su valor   */
+const pintarCards = ()=>{
 
-    /* meter la imagen en el div */
-    /* meter el div en el artigle */
-    /* meter el h3 y el p en el article */
+    ///* recorrer los elementos del array/*
+    for (var i = 0; i < arrayViajes.length; i++) {
+        
+        ///* por cada elemento crear:/*
+        /* un article   */
+        let tagArticle=document.createElement("article");
+        /* un div   */
+        let tagDiv=document.createElement("div");
+        /* una imgen asignando sus atributos   */
+        let tagDivImg=document.createElement("img")
+        tagDivImg.setAttribute("src",arrayViajes[i].src);
+        tagDivImg.setAttribute("alt",arrayViajes[i].alt);
+        
+        /* un h3 asignar su valor   */
+        let tagTitulo3=document.createElement("h3");
+        tagTitulo3.textContent="Viaje "+arrayViajes[i].id;
 
-    /* añadir el artícle fragmento */
-    /* dejo de recorrer el array */
+        /* un p asignar su valor   */
+        let tagP=document.createElement("p");
+        tagP.textContent=arrayViajes[i].texto;
 
-    /* añadir el fragmento al div flexContainer */
+        /* meter la imagen en el div */
+        tagDiv.append(tagDivImg);
+        /* meter el div en el artigle */
+        tagArticle.append(tagDiv);
+        /* meter el h3 y el p en el article */
+        tagArticle.append(tagTitulo3);
+        tagArticle.append(tagP);
+
+        /* añadir el artícle fragmento */
+        let fragment = new DocumentFragment();
+        fragment.append(tagArticle);
+
+        //console.log(tagArticle);
+
+        /* dejo de recorrer el array */
+        /* añadir el fragmento al div flexContainer */
+
+        document.querySelector(".flexContainer").append(fragment)
+    }
+        
+
+    
 
 }
+
+
+
+
 const pintarDestinos = {
 
 }
@@ -104,3 +172,6 @@ const pintarDestinos = {
 /* INVOCACIÓN A LAS FUNCIONES */
 pintarBanner()
 // pintarCards()
+console.log(aleatorio())
+
+pintarCards();
