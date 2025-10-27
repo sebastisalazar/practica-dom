@@ -150,8 +150,9 @@ const pintarCards = ()=>{
         //console.log(tagArticle);
 
         /* dejo de recorrer el array */
-        /* añadir el fragmento al div flexContainer */
 
+
+        /* añadir el fragmento al div flexContainer */
         document.querySelector(".flexContainer").append(fragment)
     }
         
@@ -160,18 +161,32 @@ const pintarCards = ()=>{
 
 }
 
+const pintarDestinos = ()=> {
 
+    //Array para nombre destinos
+    let nombreDestinos=["Sevilla","Malaga","Bilbao", "Madrid","Barcelona","Valencia"]
 
+    let fragment = new DocumentFragment();
 
-const pintarDestinos = {
+    //Append de nombre destinos en etiqueta select
+    for (var i = 0; i < nombreDestinos.length; i++) {
 
+        //crea etiqueta option
+        let tagOption=document.createElement("option")
+        //setea el nombre del destino como el atributo value
+        tagOption.setAttribute("value",nombreDestinos[i])
+        //El texto a mostrar al usuario
+        tagOption.textContent=nombreDestinos[i];
+        //insercion de tag option dentro del fragmento
+        fragment.append(tagOption);
+    }
+
+    /* añadir el fragmento al div flexContainer */
+    document.querySelector("#destinos div select").append(fragment)
 }
-
-
 
 /* INVOCACIÓN A LAS FUNCIONES */
 pintarBanner()
-// pintarCards()
-console.log(aleatorio())
-
+console.log("Numero indice aleatorio para la imagen: "+aleatorio())
 pintarCards();
+pintarDestinos();

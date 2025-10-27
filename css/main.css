@@ -10,7 +10,13 @@ img {
     width: 100%;
 }
 
-.fullContainer p{
+
+
+section{
+    margin-bottom: 30px;
+}
+
+.fullContainer p, footer{
     font-size: 2rem;
     text-align: center;
     padding: 2rem;
@@ -19,11 +25,15 @@ img {
     
 }
 
-.container h1{
+.container h1, footer{
     min-width:310px;
 }
 
-.fullContainer {
+h1{
+    margin:20px 20px;
+    text-align: center;
+}
+.fullContainer, footer {
     width: 100%;
     background-color: darkslategray;
 }
@@ -31,7 +41,7 @@ img {
 .container {
     width: 95%;
     margin: 0 auto;
-    border: 1px solid rgb(129, 129, 8);
+    /*border: 1px solid rgb(129, 129, 8);*/
 }
 
 .flexContainer {
@@ -43,6 +53,10 @@ img {
 
 .flexContainer>* {
     width: 100%;
+}
+
+.flexContainer div img:hover{
+    opacity: 0.7;
 }
 
 /* ===============================
